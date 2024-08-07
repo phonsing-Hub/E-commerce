@@ -1,1 +1,4 @@
 .DS_Store
+/Backend/node_modules
+/FrontEnd/node_modules
+/FrontEnd/bun.lockb
