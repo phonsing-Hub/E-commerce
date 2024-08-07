@@ -1,7 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
 
-.border{
-    border: 1px solid black;
+* {
+  font-family: "Fira Mono", monospace;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.content {
+  padding-top: 4rem;
+}
+
+.slide-in {
+  -webkit-animation: slide-in 0.5s both;
+  animation: slide-in 0.5s both;
+}
+
+.slide-out {
+  -webkit-animation: slide-out 0.5s both;
+  animation: slide-out 0.5s both;
+}
+
+@keyframes slide-in {
+  0% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  100% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }

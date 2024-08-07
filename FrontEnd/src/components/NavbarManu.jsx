@@ -1,34 +1,54 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useLoaderData,
+} from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  DropdownItem,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
-  Avatar,
   Chip,
   Button,
   Divider,
+  User,
 } from "@nextui-org/react";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsShopWindow } from "react-icons/bs";
-
 import { AcmeLogo } from "../icons/AcmeLogo";
 import Switch_Mode from "./Switch_Mode";
-import Modal_SignIn from "./modals/Modal_SignIn";
-import Modal_SignUp from "./modals/Modal_SignUp";
 
 export default function NavbarManu() {
-  // const { isOpen: isOpen_SignIn, onOpen: onOpen_SignIn, onOpenChange: onOpenChange_SignIn } = useDisclosure();
-  // const { isOpen: isOpen_SignUp, onOpen: onOpen_SignUp, onOpenChange: onOpenChange_SignUp } = useDisclosure();
+  const data = useLoaderData();
   const navigate = useNavigate();
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
   const iconSize = 20;
+
+  const _Auth = (
+    <div className="flex h-5 items-center space-x-2">
+      <Button
+        color="success"
+        variant="light"
+        size="sm"
+        onPress={() => navigate("/signin")}
+      >
+        <p className="font-bold">Sign In</p>
+      </Button>
+      <Divider orientation="vertical" />
+      <Button
+        color="primary"
+        variant="light"
+        size="sm"
+        onPress={() => navigate("/signup")}
+      >
+        <p className="font-bold">Sign Up</p>
+      </Button>
+    </div>
+  );
+
   return (
     <Navbar
       isBordered
@@ -83,40 +103,19 @@ export default function NavbarManu() {
       </NavbarContent>
       <NavbarContent as="div" justify="end">
         <Switch_Mode />
-        <div className="flex h-5 items-center space-x-2">
-          <Button color="success" variant="light" size="sm" onPress={()=>navigate('/signin')}>
-            <p className="font-bold">Sign In</p>
-          </Button>
-          <Divider orientation="vertical" />
-          <Button color="primary" variant="light" size="sm" onPress={()=>navigate('/signup')}>
-            <p className="font-bold">Sign Up</p>
-          </Button>
-          
-        </div>
-        {/* <Dropdown placement="bottom-end">
-          <DropdownTrigger>
-            <Avatar
-              src="https://i.pravatar.cc/150?u=a04258114e29026702d"
-              isBordered
-              color="primary"
-            />
-          </DropdownTrigger>
-          <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
-              <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
-            </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
-              Log Out
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown> */}
+        {data.authStatus ? (
+          <User
+          name="Jane Doe"
+          description="Product Designer"
+          avatarProps={{
+            src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+            isBordered: true,
+            color: "primary"
+          }}
+        />
+        ) : (
+          _Auth
+        )}
       </NavbarContent>
     </Navbar>
   );

@@ -13,6 +13,9 @@ import Signup from "./pages/_auth/Signup";
 const router = createBrowserRouter([
   {
     path: "/",
+    loader: () => {
+      return { authStatus: true, name: "polsing" };
+    },
     element: <Root />,
     children: [
       {
@@ -22,15 +25,10 @@ const router = createBrowserRouter([
       {
         path: "shopping",
         element: <Shopping />,
+        loader: () => {
+          return { name: "polsing" };
+        },
       },
-      // {
-      //   path: "dashboard",
-      //   element: <Dashboard />,
-      //   loader: ({ request }) =>
-      //     fetch("/api/dashboard.json", {
-      //       signal: request.signal,
-      //     }),
-      // },
       {
         element: <AuthLayout />,
         children: [
@@ -41,12 +39,7 @@ const router = createBrowserRouter([
           {
             path: "signup",
             element: <Signup />,
-            // loader: redirectIfUser,
           },
-          // {
-          //   path: "logout",
-          //   action: logoutUser,
-          // },
         ],
       },
     ],

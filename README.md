@@ -2,7 +2,7 @@
 mini project: E-commerce System.
 
 FrontEnd: React (NEXT UI)<br>
-BackEnd: Elysia🦊 (Bun)
+BackEnd: Express (NodeJS)
 
 ## License
 
