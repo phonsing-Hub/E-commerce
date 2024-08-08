@@ -2,7 +2,7 @@
 mini project: E-commerce System.
 
 FrontEnd: React (NEXT UI)<br>
-BackEnd: Express (NodeJS)
+BackEnd: Express (Bun)
 
 ## License
 
