@@ -13,4 +13,9 @@ function validatePassword(password) {
   else return false;
 }
 
-module.exports = { validate_mail_phone, validatePassword };
+function generateID(number) {
+  const paddedNumber = String(number).padStart(9, '0');
+  return `AS-${paddedNumber}`;
+}
+
+module.exports = { validate_mail_phone, validatePassword, generateID };

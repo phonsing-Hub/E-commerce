@@ -2,4 +2,5 @@
 /Backend/node_modules
 /Backend/bun.lockb
 /FrontEnd/node_modules
+/FrontEnd/dist
 /FrontEnd/bun.lockb

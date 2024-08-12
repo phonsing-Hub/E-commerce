@@ -1,25 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
 
 * {
-  font-family: "Fira Mono", monospace;
+  /* font-family: "Fira Mono", monospace; */
+  scrollbar-width: none; /* สำหรับ Firefox */
+  -ms-overflow-style: none; /* สำหรับ Internet Explorer และ Edge */
 }
 
 .border {
   border: 1px solid black;
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+
+.nav-menu {
+  display: flex;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 10px;
+  max-width: 1000px;
+  margin: 10px auto;
+  z-index: 39;
 }
 
 .content {
-  padding-top: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .slide-in {

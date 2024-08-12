@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import Root from "./pages/Root";
 import Home from "./pages/Home";
 import Shopping from "./pages/Shopping";
+import Context from "./pages/Context";
 import AuthLayout from "./pages/_auth/AuthLayout";
 import Signin from "./pages/_auth/Signin";
 import Signup from "./pages/_auth/Signup";
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     loader: () => {
-      return { authStatus: true, name: "polsing" };
+      return { authStatus: false, name: "polsing" };
     },
     element: <Root />,
     children: [
@@ -27,6 +28,13 @@ const router = createBrowserRouter([
         element: <Shopping />,
         loader: () => {
           return { name: "polsing" };
+        },
+      },
+      {
+        path: "context",
+        element: <Context/>,
+        loader: () => {
+          return { name: "context" };
         },
       },
       {
