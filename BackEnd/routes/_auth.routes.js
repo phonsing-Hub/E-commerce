@@ -29,7 +29,7 @@ router.post("/auth/signup", async (req, res) => {
         ecm_id: id,
         mail: result_user == 1 ? user : null,
         phone: result_user == 2 ? user : null,
-        password: hashedPassword
+        password: hashedPassword 
     });
     res.status(201).json({code: "99", newuser}); // create success
   } catch (error) {

@@ -1,4 +1,5 @@
 .DS_Store
+.gitignore
 /Backend/node_modules
 /Backend/bun.lockb
 /FrontEnd/node_modules

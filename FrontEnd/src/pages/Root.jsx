@@ -10,7 +10,7 @@ export default function Root() {
 
   return (
     <div>
-      {!isSigninPage && !isSignupPage && <NavbarManu />}
+      { <NavbarManu />}
       {!isSigninPage && !isSignupPage && <NavMenu />}
       <Outlet />
     </div>
